@@ -1,6 +1,10 @@
 @extends('layouts.app') 
 @section('content')
-    <h1>HackerPair Helps You Build Stuff Faster.</h1>
+    HackerPair Helps You Build Stuff Faster
+@endsection
+
+@section('subtitle')
+Learn, teach, hack, and make friends with developers in your city
 @endsection
     
 @section('advertisement')

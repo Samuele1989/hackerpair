@@ -1,4 +1,4 @@
-<ul>
+{{-- <ul>
     @forelse ($events as $event)
     <li>{{$event}}</li>
     @empty
@@ -10,4 +10,9 @@
             @include('partials._row', ['event' => $event])
         @endforeach
     </table>
-</ul>
+</ul> --}}
+@extends('layouts.app')
+
+@section('content')
+Events
+@endsection
