@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Welcome to HackerPair</title>
     {!! HTML::style('css/app.css') !!}
 </head>
@@ -63,14 +65,9 @@
 
     <div>
 
-        <div class="container">
-            
-@section('advertisement')
-            <p>
-                Score some HackerPair swag in our store!
-            </p>
-            @show
-        </div>
+    <div class="container">           
+        @yield('mainContent')
+    </div>
 </body>
 
 </html>

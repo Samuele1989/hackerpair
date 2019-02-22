@@ -2,31 +2,86 @@
 
 namespace App\Http\Controllers;
 
+use App\Event;
+use Illuminate\Http\Request;
+
 class EventsController extends Controller
 {
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $events = [
-            'Laravel Hacking and Coffee',
-            'IoT with Raspberry Pi',
-            'Free Vue.js Lessons',
-        ];
-
+        $events = Event::paginate(10);
         return view('events.index')->with('events', $events);
     }
 
-    public function show($id)
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
-        $data = [
-            'name' => 'Laravel Hacking and Coffee',
-            'date' => date('d-m-Y'),
-        ];
-        return view('events.show')->with($data)->withId($id);
+        //
     }
 
-    public function category($category, $subcategory = 'all')
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
     {
-        dd("Category: {$category} Subcategory:{$subcategory}");
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Event  $event
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Event $event)
+    {
+        dd($event);
+        return view('events.show')->with('event', $event);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Event  $event
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Event $event)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Event  $event
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Event $event)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Event  $event
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Event $event)
+    {
+        //
     }
 }

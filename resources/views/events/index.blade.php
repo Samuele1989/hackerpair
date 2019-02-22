@@ -16,3 +16,18 @@
 @section('content')
 Events
 @endsection
+
+@section('mainContent')
+<ul>
+@forelse ($events as $event)
+    <li>
+        {{ $event->name }}
+    </li>
+@empty
+    <li>
+        No events found!
+    </li>
+@endforelse
+</ul>
+{{ $events->links('vendor.pagination.bootstrap-4') }}
+@endsection

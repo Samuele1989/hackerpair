@@ -19,9 +19,11 @@ Route::view('about/book', 'about.book')->name('about.book');
 
 Route::view('contact', 'contact.index')->name('contact.index');
 
-Route::get('events/{id}', 'EventsController@show')->name('events.show');
+// Route::get('events/{id}', 'EventsController@show')->name('events.show');
 
-Route::get('events', 'EventsController@index')->name('events.index');
+Route::resource('events', 'EventsController');
+
+Route::resource('events/{event}', 'EventsController');
 
 Route::get('events/category/{category}/{subcategory?}', 'EventsController@category');
 
