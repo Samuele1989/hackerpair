@@ -18,17 +18,16 @@ Events
 @endsection
 
 @section('mainContent')
-<div class="list-group list-group-flush mb-2"  >
+<ul>
 @forelse ($events as $event)
-    <a href= {{ route('events.show', $event) }} class="list-group-item list-group-item-action">
+    <li>
         {{ $event->name }}
-    </a>
+    </li>
 @empty
     <li>
         No events found!
     </li>
 @endforelse
-</div>
+</ul>
 {{ $events->links('vendor.pagination.bootstrap-4') }}
-<a href={{ route('events.create') }} class="btn btn-info">Add new Event</a>
 @endsection

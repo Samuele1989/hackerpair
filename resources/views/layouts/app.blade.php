@@ -63,17 +63,9 @@
         </div>
     </div>
 
-    <div class="container mb-4">
-        @include('flash::message')
-        @if($errors->any())
-            <div class="alert alert-danger">
-                @foreach($errors->all() as $error)
-                    <ul>
-                        <li>{{ $error }}</li>
-                    </ul>
-                @endforeach
-            </div>
-        @endif           
+    <div>
+
+    <div class="container">           
         @yield('mainContent')
     </div>
 </body>
