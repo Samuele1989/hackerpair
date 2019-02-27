@@ -19,13 +19,13 @@ Route::view('about/book', 'about.book')->name('about.book');
 
 Route::view('contact', 'contact.index')->name('contact.index');
 
-// Route::get('events/{id}', 'EventsController@show')->name('events.show');
+// Route::get('events/{id}', 'EventController@show')->name('event.show');
 
-Route::resource('events', 'EventsController');
+Route::resource('events', 'EventController');
 
-Route::resource('events/{event}', 'EventsController');
+Route::resource('states', 'StateController');
 
-Route::get('events/category/{category}/{subcategory?}', 'EventsController@category');
+// Route::get('events/category/{category}/{subcategory?}', 'EventController@category');
 
 Route::get('languages', 'LanguagesController@index')->name('languages.index');
 

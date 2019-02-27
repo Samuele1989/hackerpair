@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\Http\Requests\EventStoreRequest;
 use Illuminate\Http\Request;
 
-class EventsController extends Controller
+class EventController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,7 +26,7 @@ class EventsController extends Controller
      */
     public function create()
     {
-        //
+        return view('events.create');
     }
 
     /**
@@ -34,9 +35,23 @@ class EventsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EventStoreRequest $request)
     {
-        //
+
+        $event = Event::create(
+            $request->input()
+        );
+
+        flash('Event created!')->success();
+
+        /*  $event = new Event;
+        $event->name = $request->name;
+        $event->city = $request->city;
+        $event->description = $request->description;
+        $event->venue = $request->venue;
+        $event->save(); */
+
+        return redirect()->route('events.show', $event);
     }
 
     /**
@@ -47,7 +62,6 @@ class EventsController extends Controller
      */
     public function show(Event $event)
     {
-        dd($event);
         return view('events.show')->with('event', $event);
     }
 
@@ -59,7 +73,7 @@ class EventsController extends Controller
      */
     public function edit(Event $event)
     {
-        //
+        return view('events.edit')->with('event', $event);
     }
 
     /**
@@ -71,7 +85,14 @@ class EventsController extends Controller
      */
     public function update(Request $request, Event $event)
     {
-        //
+        $event->update(
+            $request->input()
+        );
+
+        flash('Event updated!')->success();
+
+        return redirect()->route('events.show', $event);
+
     }
 
     /**
@@ -82,6 +103,10 @@ class EventsController extends Controller
      */
     public function destroy(Event $event)
     {
-        //
+        $event->delete();
+
+        flash('Event deleted!')->important();
+
+        return redirect()->route('events.index');
     }
 }
